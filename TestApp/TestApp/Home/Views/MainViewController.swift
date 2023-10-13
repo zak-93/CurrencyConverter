@@ -263,7 +263,7 @@ class MainViewController: UIViewController {
     
     @objc func refresh() {
         if let value = inputValueTextField.text, value == "" {
-            alertError(error: .noValue)
+            alertError(error: ErrorMainView.noValue.errorDescription ?? "")
             inputValueTextField.text = nil
             outputValueLabel.text = "0.00"
             outputValueLabel.textColor = .colorBFBFBF
@@ -305,7 +305,7 @@ class MainViewController: UIViewController {
     
     func allData() -> Bool {
         if leftCurrencyView.name == defaultValue || rightCurrencyView.name == defaultValue {
-            alertError(error: .noCarrency)
+            alertError(error: ErrorMainView.noCarrency.errorDescription ?? "")
             return false
         } else {
             return true
@@ -324,15 +324,8 @@ class MainViewController: UIViewController {
         }
     }
     
-    func alertError(error: ErrorMainView) {
-        let alert = UIAlertController.init(title: error.errorDescription, message: "", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(ok)
-        present(alert, animated: true)
-    }
-    
-    func alertErrorServer(error: CurrentyError) {
-        let alert = UIAlertController.init(title: error.errorDescription, message: "", preferredStyle: .alert)
+    func alertError(error: String) {
+        let alert = UIAlertController.init(title: error, message: "", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(ok)
         present(alert, animated: true)
@@ -350,7 +343,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: MainViewInputDelegate {
     func errorData(error: CurrentyError) {
-        alertErrorServer(error: error)
+        alertError(error: error.errorDescription ?? "")
     }
     
     func getData(data: Double) {
