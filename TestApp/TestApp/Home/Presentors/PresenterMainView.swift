@@ -1,10 +1,3 @@
-//
-//  PresenterMainView.swift
-//  TestApp
-//
-//  Created by Yashin Zahar on 23.05.2023.
-//
-
 import Foundation
 
 class PresenterMainView {
@@ -50,8 +43,6 @@ class PresenterMainView {
             if let responceData = data {
                 do {
                     let data = try JSONDecoder().decode(Converter.self, from: responceData)
-                    
-                    //                    self.saveDataCurrency(data: data, key: currency)
                     if let intData = Double(data.data[currency] ?? "1") {
                         DispatchQueue.main.async {
                             complition(.success(intData))
@@ -65,26 +56,6 @@ class PresenterMainView {
             }
         }.resume()
     }
-    
-    //    func getDataCurrency(firstValue: String, secondValue: String) -> Bool {
-    //        let currency = "\(firstValue)\(secondValue)"
-    //
-    //        guard let data = UserDefaults.standard.data(forKey: currency),
-    //              let saveValue = try? JSONDecoder().decode(Converter.self, from: data) else { return false }
-    //        if let value = Double(saveValue.data[currency] ?? "1") {
-    //            mainViewInputDelegate?.getData(data: value)
-    //            return true
-    //        }
-    //        return false
-    //    }
-    //
-    //    func saveDataCurrency(data: Converter, key: String) {
-    //        if let data = try? JSONEncoder().encode(data) {
-    //            UserDefaults.standard.set(data, forKey: key)
-    //        }
-    //    }
-    
-    
 }
 
 extension PresenterMainView: MainViewOutputDelegate {

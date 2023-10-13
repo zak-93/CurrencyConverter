@@ -1,16 +1,9 @@
-//
-//  CurrencyDisplayView.swift
-//  TestApp
-//
-//  Created by Yashin Zahar on 23.05.2023.
-//
-
 import UIKit
 
 class CurrencyDisplayView: UIView {
     
     //MARK: Variables
-        
+    
     public var name: String = "Currency"
     
     //MARK: Objects

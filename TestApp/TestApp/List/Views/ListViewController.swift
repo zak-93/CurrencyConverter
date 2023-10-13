@@ -1,10 +1,3 @@
-//
-//  ListViewController.swift
-//  TestApp
-//
-//  Created by Yashin Zahar on 23.05.2023.
-//
-
 import UIKit
 
 protocol ListViewControllerDelegate: AnyObject {

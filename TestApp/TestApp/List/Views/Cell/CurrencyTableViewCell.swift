@@ -1,10 +1,3 @@
-//
-//  CurrencyTableViewCell.swift
-//  TestApp
-//
-//  Created by Yashin Zahar on 23.05.2023.
-//
-
 import UIKit
 
 class CurrencyTableViewCell: UITableViewCell {
@@ -91,7 +84,7 @@ class CurrencyTableViewCell: UITableViewCell {
         }
     }
 
-    func setConstraints() {
+    private func setConstraints() {
         self.contentView.addSubview(viewContent)
         viewContent.addSubview(nameCell)
         viewContent.addSubview(selectedCell)
@@ -99,7 +92,6 @@ class CurrencyTableViewCell: UITableViewCell {
     }
 
     //MARK: Constraints
-
 
     private func constraints() {
         NSLayoutConstraint.activate([

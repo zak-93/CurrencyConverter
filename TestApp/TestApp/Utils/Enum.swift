@@ -1,10 +1,3 @@
-//
-//  ModelError.swift
-//  TestApp
-//
-//  Created by Yashin Zahar on 23.05.2023.
-//
-
 import Foundation
 
 // MARK: Обработка ошибок с сервера / Error form the server
